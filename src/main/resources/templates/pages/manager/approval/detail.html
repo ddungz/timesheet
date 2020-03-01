@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+			layout:decorate="~{fragments/layout}">
+<head>
+	<script type="text/javascript">
+		console.log("Index is loaded.");
+	</script>
+</head>
+
+<body>
+	<div layout:fragment="content" class="mt-5 ml-5">
+
+		<div class="page"><div class="flex-fill"><div class="header py-4"><div class="container"><div class="d-flex"><a href="./index.html" class="header-brand"></a> <div class="d-flex order-lg-2 ml-auto"><div class="nav-item d-none d-md-flex"><a href="#" data-toggle="collapse" data-target="#headerMenuCollapse" aria-expanded="false" class="header-toggler ml-3 ml-lg-0 collapsed"><span class="header-toggler-icon"></span></a></div></div></div></div></div></div> <div class="container-fluid"><div class="form-inline py-4"><select class="custom-select"><option selected="selected">2019/10</option> <option value="1">2019/11</option> <option value="2">2019/12</option> <option value="3">2020/01</option></select> <button class="btn btn-primary ml-3">表示</button> <button class="btn btn-primary ml-3">PDF</button></div> <div class="row"><div class="col-3"><table class="table table-sm"><tr><th class="table-primary">対象月</th> <td>2019年10月</td></tr> <tr><th class="table-primary">所属</th> <td>情報ﾈｯﾄﾜｰｸ総合研究所企画部人事</td></tr> <tr><th class="table-primary">氏名コード</th> <td></td></tr> <tr><th class="table-primary">氏名</th> <td>〇〇　〇〇</td></tr></table></div> <div class="col-2"><table class="table table-sm"><tr><th class="table-primary">提出者</th> <td>〇〇〇〇</td></tr> <tr><th class="table-primary">提出日付</th> <td>2019.11.10</td></tr> <tr><th class="table-primary">承認者</th> <td></td></tr> <tr><th class="table-primary">承認日付</th> <td></td></tr></table></div> <div class="col-3"><table class="table table-sm"><tr><th class="table-primary">補正者（人事担当）</th> <td>〇〇〇〇</td></tr> <tr><th class="table-primary">補正日付</th> <td>2019.11.20</td></tr> <tr><th class="table-primary">補正者（総括担当）</th> <td>〇〇〇〇</td></tr> <tr><th class="table-primary">承認日付</th> <td>2019.11.21</td></tr></table></div> <div class="col-12 py-4"><table class="table table-bordered"><thead class="text-center"><tr><th rowspan="2">日付</th> <th rowspan="2">詳細</th> <th rowspan="2">勤務形態</th> <th rowspan="2">休暇</th> <th rowspan="2" width="10%">稼働状況確認画面コメント欄（発生時）</th> <th colspan="2" class="table-primary">勤務票</th> <th colspan="4" class="table-success">ログ実績</th> <th colspan="2" class="table-warning">乖離時間（最終）</th> <th colspan="2">
+                              判定
+                              <div class="form-inline justify-content-center"><select class="custom-select custom-select-sm"><option selected="selected">金</option></select></div></th> <th colspan="4">勤務票時間補正</th> <th rowspan="2" width="10%">勤務票時間補正コメント<br>（判定が｢NG｣の場合、乖離理由や勤務時間補正理由等）</th> <th colspan="3">
+                              補正種別
+                              <div class="form-inline justify-content-center"><select class="custom-select custom-select-sm"><option selected="selected">金</option></select></div></th></tr> <tr><th class="table-primary">始業前</th> <th class="table-primary">終業後</th> <th class="table-success">ログ種別</th> <th class="table-success">始業時刻</th> <th class="table-success">終業時刻</th> <th class="table-success">接続時間</th> <th class="table-warning">始業前</th> <th class="table-warning">終業後</th> <th>始業時刻</th> <th>終業時刻</th> <th>始業時刻</th> <th>終業時刻</th> <th>実労働時間</th> <th>--時間</th> <th width="3%">追納<br>返納</th> <th width="3%">年休<br>返還</th> <th width="3%">その<br>他</th></tr></thead> <tbody><tr><td>1(火)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>08:54</td><td>21:22</td><td>D</td><td>00:26</td><td>20:52</td><td></td><td>22:30</td><td>17:08</td><td>乖離あり</td><td>乖離あり</td><td>09:47</td><td>22:39</td><td>08:50</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>2(水)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>22:38</td><td>12:13</td><td>D</td><td>04:26</td><td>23:54</td><td></td><td>23:06</td><td>22:18</td><td>ログなし</td><td>乖離あり</td><td>03:32</td><td>11:36</td><td>11:37</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>3(木)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>13:50</td><td>09:26</td><td>R</td><td>01:30</td><td>17:17</td><td></td><td>21:33</td><td>21:12</td><td>ログなし</td><td>乖離あり</td><td>11:47</td><td>19:04</td><td>08:44</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>4(金)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>23:39</td><td>20:55</td><td>R</td><td>05:12</td><td>01:20</td><td></td><td>22:33</td><td>10:38</td><td>乖離あり</td><td>ログなし</td><td>04:40</td><td>00:51</td><td>04:17</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>5(土)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>23:05</td><td>12:00</td><td>D</td><td>15:48</td><td>13:28</td><td></td><td>00:39</td><td>21:28</td><td>-</td><td>ログなし</td><td>14:15</td><td>09:00</td><td>22:30</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>6(日)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>23:00</td><td>11:59</td><td>D</td><td>03:17</td><td>06:27</td><td></td><td>22:12</td><td>22:01</td><td>ログなし</td><td>ログなし</td><td>08:37</td><td>19:38</td><td>04:15</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>7(月)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>02:09</td><td>11:08</td><td>D</td><td>22:59</td><td>20:19</td><td></td><td>22:48</td><td>22:03</td><td>乖離あり</td><td>-</td><td>00:28</td><td>10:16</td><td>11:05</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>8(火)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>04:10</td><td>06:38</td><td>R</td><td>04:22</td><td>20:15</td><td></td><td>04:22</td><td>20:45</td><td>ログなし</td><td>乖離あり</td><td>14:17</td><td>23:23</td><td>02:47</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>9(水)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>16:02</td><td>00:15</td><td>D</td><td>23:24</td><td>00:07</td><td></td><td>13:27</td><td>04:46</td><td>乖離あり</td><td>乖離あり</td><td>16:43</td><td>15:10</td><td>17:20</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>10(木)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>22:02</td><td>20:58</td><td>R</td><td>16:50</td><td>05:56</td><td></td><td>09:20</td><td>19:48</td><td>乖離あり</td><td>乖離あり</td><td>02:15</td><td>00:36</td><td>08:06</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>11(金)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>14:24</td><td>18:16</td><td>D</td><td>08:19</td><td>06:34</td><td></td><td>02:09</td><td>07:31</td><td>-</td><td>乖離あり</td><td>11:59</td><td>21:30</td><td>17:50</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>12(土)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>15:30</td><td>00:52</td><td>R</td><td>15:41</td><td>15:50</td><td></td><td>12:40</td><td>19:43</td><td>乖離あり</td><td>乖離あり</td><td>22:48</td><td>13:25</td><td>00:02</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>13(日)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>17:13</td><td>03:16</td><td>D</td><td>14:20</td><td>01:23</td><td></td><td>22:15</td><td>16:37</td><td>-</td><td>乖離あり</td><td>18:06</td><td>05:13</td><td>17:28</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>14(月)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>10:04</td><td>03:20</td><td>D</td><td>01:21</td><td>07:16</td><td></td><td>05:37</td><td>19:23</td><td>ログなし</td><td>-</td><td>13:17</td><td>02:08</td><td>13:01</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>14(月)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>03:16</td><td>20:55</td><td>R</td><td>12:35</td><td>22:34</td><td></td><td>19:32</td><td>10:10</td><td>乖離あり</td><td>ログなし</td><td>03:03</td><td>20:06</td><td>13:10</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>15(火)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>14:50</td><td>12:12</td><td>R</td><td>06:14</td><td>13:53</td><td></td><td>20:17</td><td>02:48</td><td>ログなし</td><td>乖離あり</td><td>19:59</td><td>16:29</td><td>12:41</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>16(水)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>22:34</td><td>10:18</td><td>R</td><td>06:36</td><td>16:42</td><td></td><td>06:30</td><td>07:46</td><td>乖離あり</td><td>-</td><td>14:11</td><td>03:41</td><td>18:15</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>17(木)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>18:21</td><td>05:38</td><td>D</td><td>10:37</td><td>22:21</td><td></td><td>00:02</td><td>17:47</td><td>乖離あり</td><td>ログなし</td><td>11:03</td><td>07:45</td><td>21:11</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>18(金)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>01:35</td><td>01:34</td><td>D</td><td>13:25</td><td>08:07</td><td></td><td>23:28</td><td>06:22</td><td>乖離あり</td><td>ログなし</td><td>16:20</td><td>02:29</td><td>03:22</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>19(土)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>19:25</td><td>01:36</td><td>R</td><td>15:54</td><td>09:21</td><td></td><td>02:09</td><td>23:14</td><td>乖離あり</td><td>乖離あり</td><td>21:02</td><td>16:21</td><td>05:03</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>20(日)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>16:09</td><td>05:20</td><td>R</td><td>19:55</td><td>13:06</td><td></td><td>12:27</td><td>12:50</td><td>ログなし</td><td>ログなし</td><td>10:15</td><td>11:32</td><td>08:13</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>21(月)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>14:07</td><td>04:54</td><td>D</td><td>02:34</td><td>09:18</td><td></td><td>22:15</td><td>11:40</td><td>-</td><td>-</td><td>00:41</td><td>23:19</td><td>08:50</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>22(火)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>06:57</td><td>04:02</td><td>D</td><td>16:16</td><td>06:38</td><td></td><td>12:18</td><td>14:43</td><td>乖離あり</td><td>乖離あり</td><td>05:30</td><td>12:06</td><td>07:07</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>23(水)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>08:02</td><td>08:18</td><td>D</td><td>07:18</td><td>21:30</td><td></td><td>17:27</td><td>11:48</td><td>ログなし</td><td>-</td><td>08:11</td><td>10:27</td><td>01:22</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>24(木)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>18:42</td><td>22:13</td><td>D</td><td>01:54</td><td>09:26</td><td></td><td>12:16</td><td>16:43</td><td>ログなし</td><td>-</td><td>04:59</td><td>12:08</td><td>03:16</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>25(金)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>22:40</td><td>05:28</td><td>R</td><td>16:47</td><td>12:29</td><td></td><td>03:36</td><td>09:25</td><td>ログなし</td><td>ログなし</td><td>22:17</td><td>19:48</td><td>06:13</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>26(土)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>12:34</td><td>06:32</td><td>R</td><td>10:40</td><td>06:46</td><td></td><td>00:10</td><td>20:37</td><td>-</td><td>ログなし</td><td>17:17</td><td>19:11</td><td>02:09</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>27(日)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>03:10</td><td>14:43</td><td>D</td><td>18:02</td><td>01:21</td><td></td><td>00:36</td><td>13:27</td><td>-</td><td>-</td><td>01:19</td><td>23:11</td><td>11:35</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>28(月)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>勤務票修正済み
+    (21:55)</td><td>09:04</td><td>17:30</td><td>D</td><td>23:54</td><td>15:15</td><td></td><td>01:59</td><td>17:13</td><td>ログなし</td><td>-</td><td>06:16</td><td>14:49</td><td>15:19</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>29(火)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td></td><td>14:56</td><td>03:35</td><td>D</td><td>02:06</td><td>03:09</td><td></td><td>19:51</td><td>19:31</td><td>乖離あり</td><td>乖離あり</td><td>00:00</td><td>11:17</td><td>00:08</td><td></td><td></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr><tr><td>30(水)</td><td></td><td>フレックス管理Ⅰ(08:30～17:00)</td><td></td><td>シャットダウン遅延によるログオフ記録。勤務票の時刻通りの勤務。 (22:15)</td><td>07:28</td><td>09:06</td><td>D</td><td>18:38</td><td>07:53</td><td></td><td>00:06</td><td>08:55</td><td>乖離あり</td><td>乖離あり</td><td>09:17</td><td>15:41</td><td>13:30</td><td></td><td></td> <td class="text-center">
+                              ✓
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td> <td class="text-center">
+                              -
+                              <div class="text-center"><input type="checkbox" id="customCheck1"></div></td></tr></tbody></table> <div class="text-center"><button class="btn btn-primary">差戻し</button> <button class="btn btn-primary ml-3">承認</button></div></div></div></div></div>
+
+	</div>
+</body>
+</html>

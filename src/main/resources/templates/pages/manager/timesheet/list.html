@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	layout:decorate="~{fragments/layout}">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" th:href="@{/css/timesheet.css}">
+	<title th:text="#{app.pages.timesheets}">本帳票リスト</title>
+</head>
+
+<body>
+	<div layout:fragment="content" class="" id="TimesheetList">
+		<div class="page">
+			<div class="container-fluid">
+				<ul class="nav nav-tabs">
+					<li class="nav-item"><a href="#book-list" data-toggle="tab"
+						class="nav-link active">本帳票リスト</a></li>
+					<li class="nav-item"><a href="#" data-toggle="tab"
+						class="nav-link">本帳票集計</a></li>
+					<li class="nav-item"><a href="#" data-toggle="tab"
+						class="nav-link">ファイル一覧生成</a></li>
+				</ul>
+
+				<div class="tab-content">
+					<div id="book-list" class="tab-pane active">
+						<div class="form-inline py-4">
+							<select id="monthsDropdown" class="custom-select">
+								<option th:each="month, iter : ${months}" th:text="${month}" th:value="${month}" th:selected="${ iter.index == iter.size -1 }"></option>
+							</select>
+							<select id="departmentsDropdown" class="custom-select ml-3">
+								<option selected="selected"></option>
+								<option th:each="department, iter : ${departments}" th:text="${department.name}" th:value="${department.code}"></option>
+							</select>
+							<select id="groupsDropdown" class="custom-select ml-3">
+								<option selected="selected"></option>
+							</select>
+
+							<button id="show" class="btn btn-primary ml-3">表示</button>
+							<button id="pdf" class="btn btn-primary ml-3">PDF</button>
+						</div>
+
+						<div class="row">
+							<!-- table -->
+							<div class="col-12 py-4">
+								<table id="timesheetListTable" class="table table-bordered table-hover dataTable no-footer">
+									<thead class="text-center">
+										<tr>
+											<th rowspan="2" class="sorting_disabled">
+												<button id="timesheetListTable-bulkShow" class="btn btn-primary ml-3">一括表示</button>
+											</th>
+											<th rowspan="2" class="">組織<div id="filter"></div></th>
+											<th rowspan="2">グループ</th>
+											<th rowspan="2">氏名</th>
+											<th rowspan="2">コード</th>
+											<th rowspan="2">対象月</th>
+											<th colspan="3">
+												<div th:text="#{timesheets.list.reConfirmationNumber}" th:remove="tag">再確認数</div>
+												<div id="timesheetListTable-reConfirmation" class="form-inline justify-content-center"></div>
+											</th>
+											<th rowspan="2">本人確認
+												<div id="timesheetListTable-selfConfirmation" class="form-inline justify-content-center">
+												</div>
+											</th>
+											<th rowspan="2">管理職承認
+												<div id="timesheetListTable-managerConfirmation" class="form-inline justify-content-center">
+												</div>
+											</th>
+											<th colspan="3">
+												<div th:text="#{timesheets.list.correctionNumber}" th:remove="tag">補正対象数</div>
+												<div id="timesheetListTable-correctionConfirmation" class="form-inline justify-content-center"></div>
+											</th>
+											<th rowspan="2">人事担当補正
+												<div id="timesheetListTable-assistantConfirmation" class="form-inline justify-content-center">
+												</div>
+											</th>
+											<th rowspan="2">総括担当補正
+												<div id="timesheetListTable-generalConfirmation" class="form-inline justify-content-center">
+												</div>
+											</th>
+										</tr>
+										<tr>
+											<th width="3%">乖離<br>あり
+											</th>
+											<th width="3%">ログ<br>なし
+											</th>
+											<th width="3%">勤務<br>外
+											</th>
+											<th width="3%">追給<br>返納
+											</th>
+											<th width="3%">年休<br>返還
+											</th>
+											<th width="3%">その<br>他
+											</th>
+										</tr>
+									</thead>
+
+									<tbody id="timesheetListTable-tBody">
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<th:block layout:fragment="resources">
+		<script th:inline="javascript">
+			/*<![CDATA[*/
+		   		var months = /*[[${months}]]*/ [];
+		   		var departments = /*[[${departments}]]*/ [];
+				var total = /*[[${total}]]*/ 0;
+	  		/*]]>*/
+	    </script>
+
+        <script defer th:inline="javascript" type="module" th:src="@{/js/timesheet/list/index.js}"></script>
+    </th:block>
+</body>
+</html>

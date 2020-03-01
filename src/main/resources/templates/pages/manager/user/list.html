@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/layout}"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<th:block layout:fragment="css_resources">
+		<link rel="stylesheet" th:href="@{/css/user.css}">
+	</th:block>
+	<title th:text="#{app.pages.users}"></title>
+</head>
+<body>
+<div layout:fragment="content" class="">
+	<div class="page">
+		<div class="container-fluid">
+			<ul class="nav nav-tabs">
+				<li class="nav-item"><a href="#user-info" data-toggle="tab" class="nav-link active">ユーザー情報</a></li>
+				<li class="nav-item"><a href="#auth-info" data-toggle="tab" class="nav-link">本帳票集計</a></li>
+				<li class="nav-item"><a href="#admin-info" data-toggle="tab" class="nav-link">管理者情報</a></li>
+				<li class="nav-item"><a href="#excluded-info" data-toggle="tab" class="nav-link">除外者情報</a></li>
+			</ul>
+			<div class="tab-content">
+				<div id="user-info" class="tab-pane active">
+					<div class="row">
+						<div class="col-12 py-4">
+							<table id="tableUsers" class="table table-bordered dataTable">
+								<thead class="text-center">
+									<tr>
+										<th>
+										 	<div th:text="${header?.department != null} ? ${header.department} : '組織'"></div>
+											<div class="form-inline justify-content-center">
+												<select id="departmentSelect" class="custom-select custom-select-sm">
+													<option selected="selected" th:text="${header?.selectAll != null} ? ${header.selectAll} : '全'"></option>
+													<option th:each="department : ${departments}" th:text="${department.name}"></option>
+												</select>
+											</div>
+										</th>
+										<th th:text="${header?.project != null} ? ${header.project} : 'プロジェクト'"></th>
+										<th th:text="${header?.group != null} ? ${header.group} : 'グループ'"></th>
+										<th th:text="${header?.userFullName != null} ? ${header.userFullName} : '氏名'"></th>
+										<th th:text="${header?.userCode != null} ? ${header.userCode} : '氏名コード'"></th>
+										<th th:text="${header?.isManager != null} ? ${header.isManager} : '管理職'"></th>
+										<th th:text="${header?.isAssistant != null} ? ${header.isAssistant} : '補佐'"></th>
+										<th th:text="${header?.isGeneral != null} ? ${header.isGeneral} : '総括'"></th>
+									</tr>
+								</thead>
+								<tbody id="tableUsers-tBody">
+									<tr th:if="${departments.empty}" th:text="${body?.dataEmpty != null} ? ${body.dataEmpty} : 'データがありません。'"></tr>
+									
+									<th:block th:each="department: ${departments}">
+										<th:block th:each="group: ${department.groups}">
+											<tr th:each="user: ${group.users}" th:with="roles = ${#strings.listJoin(user.roles.![name], '')}">
+												<td th:text="${department.name}"></td>
+												<td th:text="${not #lists.isEmpty(user.projects) ? user.projects[0].name : ''}"></td>
+												<td th:text="${group.name}"></td>
+												<td th:text="|${user.lastname} ${user.firstname}|"></td>
+												<td th:text="${user.userCode}"></td>
+												<td th:text="${#strings.contains(roles, 'ROLE_MANAGER') ? '〇' : ''}"></td>
+												<td th:text="${#strings.contains(#strings.listJoin(roles, ''), 'ROLE_ASSISTANT') ? '〇' : ''}"></td>
+												<td th:text="${#strings.contains(#strings.listJoin(roles, ''), 'ROLE_GENERAL') ? '〇' : ''}"></td>
+											</tr>
+										</th:block>
+									</th:block>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<th:block layout:fragment="resources">
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+	   		var departments = /*[[${departments}]]*/ [];
+			var total = /*[[${total}]]*/ 0;
+  		/*]]>*/
+    </script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		
+    	});
+    </script>
+    <script th:inline="javascript" type="module" th:src="@{/js/user/index.js}"></script>
+    <script th:inline="javascript" type="text/javascript" th:src="@{/js/libs/DataTables/datatables.min.js}"></script>
+</th:block>
+</body>
+</html>

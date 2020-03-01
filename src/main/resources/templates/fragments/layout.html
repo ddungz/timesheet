@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8"/>
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=1.0" name="viewport"/>
+
+	<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+	<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/js/libs/DataTables/datatables.min.js}"></script>
+	<link rel="shortcut icon" type="image/png" th:href="@{/img/favicon.png}"/>
+	<link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+	<link rel="stylesheet" th:href="@{/css/header.css}">
+	<link rel="stylesheet" th:href="@{/css/custom.css}">
+	<link rel="stylesheet" th:href="@{/css/lang-options.css}">
+	
+	<title layout:title-pattern="$LAYOUT_TITLE | $CONTENT_TITLE" th:text="#{app.name}"></title>
+</head>
+<body>
+	<div id="loading" class="loading">
+		<div class="spinner spinner-border text-light" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+	</div>
+
+	<div th:replace="fragments/header::header"></div>
+
+	<div layout:fragment="content">
+		<!-- Be replaced by Domain content -->
+	</div>
+
+	<div th:replace="fragments/footer::footer"></div>
+
+	<script th:src="@{/js/app.js}"></script>
+	<script th:src="@{/js/layout.js}"></script>
+	
+	<!-- Be replaced by customized domain resources -->
+	<th:block layout:fragment="resources"></th:block>
+	
+	<script>
+		console.log("Layout is loaded.");
+	</script>
+</body>
+</html>

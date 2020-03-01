@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.timesheet.mapper.UserMapper">
+	<resultMap id="userMap" type="com.example.timesheet.model.User">
+		<result column="ID" property="id"/>
+		<result column="USERNAME" property="username"/>
+		<result column="EMAIL" property="email"/>
+	</resultMap>
+
+	<resultMap id="userRolesMap" type="com.example.timesheet.mapper.UserSearchResult">
+		<result column="ID" property="id"/>
+		<result column="USERNAME" property="username"/>
+		<result column="EMAIL" property="email"/>
+		<collection property="roles" ofType="com.example.timesheet.model.Role">
+			<id column="ID" property="id"/>
+			<id column="NAME" property="name"/>
+		</collection>
+	</resultMap>
+
+	<select id="findAll_1" resultType="userMap">
+		SELECT * FROM users
+	</select>
+
+	<select id="findAll_2" resultType="userRolesMap">
+		SELECT * FROM users
+	</select>
+
+
+	<select id="findAll" resultType="userMap">
+		SELECT * FROM users
+	</select>
+
+	<select id="findOne" parameterType="long" resultType="com.example.timesheet.model.User">
+		SELECT *
+		FROM users
+		WHERE id = #{id}
+	</select>
+
+	<select id="findOneByCondition" parameterType="com.example.timesheet.model.User" resultType="com.example.timesheet.model.User">
+		SELECT *
+		FROM users
+		WHERE id = #{id}
+			<if test="username != null and username != ''">
+				<![CDATA[ AND username = #{username} ]]>
+			</if>
+	</select>
+	
+<!--	<insert id="save" useGeneratedKeys="true" keyProperty="id">-->
+<!--		INSERT INTO -->
+<!--		users(username, email, password) -->
+<!--		VALUES(#{username}, #{email}, #{password})-->
+<!--	</insert>-->
+<!--	-->
+<!--	<update id="update">-->
+<!--		UPDATE users-->
+<!--		SET name = #{username}, email = #{email}, password = #{password}-->
+<!--		WHERE id = #{id} -->
+<!--	</update>-->
+<!--	-->
+<!--	<delete id="delete">-->
+<!--		DELETE FROM users-->
+<!--		WHERE id = #{id}-->
+<!--	</delete>-->
+</mapper>

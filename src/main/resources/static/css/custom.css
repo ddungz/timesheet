@@ -1,0 +1,26 @@
+.dataTables_wrapper .dataTables_info {
+    margin: 0;
+    line-height: inherit;
+}
+
+.table td .custom-control label {
+    min-height: 19px;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,.5);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.spinner-border {
+    -webkit-animation: spinner-border .75s linear infinite;
+    animation: spinner-border .75s linear infinite;
+}

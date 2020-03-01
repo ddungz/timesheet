@@ -1,0 +1,7 @@
+.table th.header-filter {
+	padding: 0 0.75rem 0 0;
+}
+
+.table th.header-filter.sorting, .table th.header-filter.sorting_desc, .table th.header-filter.sorting_asc {
+	padding: 0 0.75rem 0 0;
+}

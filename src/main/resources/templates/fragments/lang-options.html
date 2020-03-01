@@ -1,0 +1,45 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8" />
+</head>
+<body>
+<div class="nav-flyout-anchor" th:fragment="dialog">
+	<div class="nav-tools" id="nav-tools">
+		<a class="nav-a language-button">
+			<div class="nav-global-icon button-globe"><span><i class="fe fe-globe"></i></span></div>
+			<span class="nav-language-text">JP</span>
+			<span class="nav-up-down-arrow"></span>
+		</a>
+	</div>
+	
+	
+	<div id="nav-flyout-icp-footer-flyout"
+		class="nav-coreFlyout nav-flyout" style="display:none;">
+
+		<div class="nav-arrow" style="position: absolute; left: 54px;"></div>
+		<div class="nav-template nav-flyout-content nav-tpl-itemList">
+			<!-- <span class="item"> 
+				<span class="nav-text">日本語 - JP</span>
+			</span> -->
+			<div class="custom-control custom-radio" style="margin-bottom: 8px;">
+				<input checked="checked" type="radio" class="custom-control-input" id="customRadio1" name="headerLanguage" value="ja"> 
+				<label class="custom-control-label" for="customRadio1"><i class="icp-radio icp-radio-active"></i>日本語 - JP</label>
+			</div>
+			
+			<div class="nav-divider"></div>
+
+			<div class="custom-control custom-radio">
+				<input type="radio" class="custom-control-input" id="customRadio2" name="headerLanguage" value="en"> 
+				<label class="custom-control-label" for="customRadio2"><i class="icp-radio icp-radio-active"></i>English - EN</label>
+			</div>
+			
+			<!-- <a href="#switch-lang=en_US" class="nav-link nav-item"> 
+				<span class="nav-text"> <i class="icp-radio"></i>English - EN</span>
+			</a> -->
+		</div>
+
+	</div>
+</div>
+</body>
+

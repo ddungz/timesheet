@@ -1,0 +1,46 @@
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.w3.org/1999/xhtml"
+	xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8" />
+	
+</head>
+<body>
+	<nav
+		class="navbar navbar-icon-top navbar-expand-lg navbar-light header"
+		th:fragment="header">
+		<a class="navbar-brand mr-3" href="/"> TIMESHEET </a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="container-fluid">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item" id="navItemUsers" th:classappend="${usersActive}? 'active'">
+						<a class="nav-link" href="/"> <i class="fa fe fe-users"></i><th:block th:text="#{app.pages.users}"></th:block></a>
+					</li>
+					<li class="nav-item" id="navItemTimesheets" th:classappend="${timesheetsActive}? 'active'">
+						<a class="nav-link" href="/timesheets"><i class="fa fe fe-list"></i><th:block th:text="#{app.pages.timesheets}"></th:block></a>
+					</li>
+					<li class="nav-item" id="navItemTimesheetsSingle" th:classappend="${timesheetsSingleActive}? 'active'">
+						<a class="nav-link" th:href="@{/timesheets/1}"><i class="fa fe fe-file-text"></i><th:block th:text="#{app.pages.timesheets.single}"></th:block></a>
+					</li>
+				</ul>
+				
+				<div class="d-flex order-lg-2 ml-auto">
+				
+					<div th:replace="fragments/lang-options::dialog"></div>
+					
+					<div class="nav-item" sec:authorize="isAuthenticated()">
+						<span sec:authentication="name"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</nav>
+</body>
+</html>

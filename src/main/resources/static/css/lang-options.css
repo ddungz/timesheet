@@ -1,0 +1,252 @@
+.custom-control-label {
+	font-weight: 400;
+}
+
+
+
+#nav-flyout-anchor {
+	position: absolute;
+	bottom:0;
+	left: 0;
+	width: 100%;
+	line-height: 0;
+	zoom: 1;
+	z-index: 1000;
+}
+#nav-flyout-icp-footer-flyout {
+	z-index: 1000;
+}
+// popup dialog
+.nav-coreFlyout {
+//parent
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+
+	margin: -3px 0 0 -2px;
+	padding-bottom: 7px;
+	width: 240px;
+	border-radius: 3px;
+}
+.nav-flyout {
+	overflow: visible !important;
+	background: #fff;
+	border: 1px solid #bbb;
+	padding: 14px;
+	box-shadow: 0 2px 4px 0 rgba(0,0,0,.13);
+	zoom: 1;
+	font-size: 13px;
+	font-family: arial,sans-serif;
+	line-height: normal;
+	
+	// hidden:
+	//position: absolute;
+	// display:none;
+	// margin: 0;
+	// box-sizing: border-box;
+}
+
+// narrow
+.nav-coreFlyout .nav-arrow {
+	margin-left: -1px;
+}
+.nav-flyout .nav-arrow {
+	border-style: solid;
+	border-width: 9px;
+	border-color: transparent;
+	border-top-width: 0;
+	border-bottom: 9px solid #ccc;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	line-height: 0;
+	top: -9px;
+	left: 29px;
+}
+
+
+// select language
+.nav-tpl-itemList {
+	width: 210px;
+}
+
+.nav-tpl-itemList .nav-item {
+	position: relative;
+	display: block;
+	clear: both;
+	font-family: arial,sans-serif;
+	line-height: 16px;
+	padding: 0 0 7px;
+	margin: 0;
+	text-decoration: none;
+	cursor: default;
+}
+.nav-tpl-itemList .nav-divider {
+    position: relative;
+    display: block;
+    line-height: 1px;
+    height: 1px;
+    overflow: hidden;
+    background: #EEE;
+    margin: 0 0 9px;
+}
+
+.nav-tpl-discoveryPanelList .nav-link, .nav-tpl-discoveryPanelSummary .nav-link, .nav-tpl-itemList .nav-link {
+    cursor: pointer;
+}
+.nav-tpl-discoveryPanelList .nav-item, .nav-tpl-discoveryPanelSummary .nav-item, .nav-tpl-itemList .nav-item {
+    position: relative;
+    display: block;
+    clear: both;
+    font-family: arial,sans-serif;
+    line-height: 16px;
+    padding: 0 0 7px;
+    margin: 0;
+    text-decoration: none;
+}
+
+a, a:active, a:link, a:visited {
+  text-decoration: none;   
+	color: #0066c0;
+}
+
+.nav-tpl-itemList .nav-text {
+	display: block;
+	font-size: 13px;
+	color: #444;
+	font-weight: 400px;
+	white-space: normal;
+	word-wrap: break-word;
+	line-height: 16px;
+}
+
+// on hover
+.nav-tpl-itemList .nav-link:hover {
+	text-decoration: none;
+	cursor: pointer;
+}
+.nav-tpl-itemList .nav-item {
+	position: relative;
+	display: block;
+	clear: both;
+	font-family: arial, sans-serif;
+	line-height: 16px;
+	padding: 0 0 7px;
+	margin: 0;
+}
+.nav-tools custom-control:hover > label {
+	color: #c45500 !important;
+}
+
+.nav-tpl-itemList .nav-link:hover .nav-text {
+	color: #e47911;
+	text-decoration: underline;
+}
+
+.nav-tpl-itemList .nav-text {
+	display: block;
+	font-size: 13px;
+	font-weight: 400;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+a:hover .icp-radio {
+	background-position: -123px -2px;
+}
+
+
+.icp-radio {
+	margin: 0 .5em 0 0;
+    position: relative;
+    top: 3px;
+    display: inline-block;
+    /* width: 18px;
+    height: 18px; */
+    width: 0;
+    height: 15px;
+    background: url(https://m.media-amazon.com/images/G/01/AUIClients/InternationalCustomerPreferencesNavAssets-icp_sprite-0b528ccc99b2eed18447291de6df851bc2c6fe68._V2_.png);
+    background-position: -75px -2px;
+}
+
+
+
+
+
+
+//////////////////////////
+.nav-tools {
+	margin-right: 5px !important;
+	width: 22rem;
+	// background: #004B91;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.nav-tools a {
+	white-space: normal;
+	
+}
+.nav-tools a:visited {
+	color: #004B91;
+	text-decoration: none;
+}
+
+
+.nav-tools .language-button {
+	display: inline-block !important;
+	border: 1px solid #8eadcc4f;
+	border-radius: 3px;
+	padding: 6px 18px 6px 8px;
+	font-size: 13px;
+	margin-right: 4px;
+}
+
+
+.nav-global-icon {
+	background-position: -77px -24px;
+	background-size: 142px 295px;
+	display: inline-block;
+}
+
+.button-globe {
+	width: 15px;
+	height: 15px;
+	top: 2px;
+	left: 0;
+}
+
+
+.nav-language-text {
+	color: #ccc;
+	
+}
+
+.nav-tools span {
+	list-style-type: none;
+	display: inline-block;
+	margin: 0;
+}
+
+.nav-up-down-arrow {
+	background-image: url(https://m.media-amazon.com/images/G/01/AUIClients/InternationalCustomerPreferencesNavAssets-icp_sprite_2x-e2484e10a418367f3c7967c4fea1a089d100d360._V2_.png);
+	background-size: 142px 295px;
+	width: 12px;
+	height: 12px;
+	background-position: -77px -80px;
+	position: relative;
+	left: 12px;
+}
+
+
+.nav-tools .language-button:hover .nav-tools .language-button {
+	border: 1px solid #8eadcc; 
+}
+.nav-tools .language-button:hover #nav-flyout-icp-footer-flyout {
+	display: block;
+}
+.nav-tools .language-button #nav-flyout-icp-footer-flyout {
+	display: none;
+}
+
+

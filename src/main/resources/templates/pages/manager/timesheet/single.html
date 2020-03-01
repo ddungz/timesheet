@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.w3.org/1999/xhtml"
+      layout:decorate="~{fragments/layout}">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" th:href="@{/css/timesheet.css}">
+    <title th:text="#{app.pages.timesheets.single}">本帳票</title>
+</head>
+<body>
+    <div layout:fragment="content" class="" id="TimesheetSingle">
+        <div class="page">
+            <div class="container-fluid">
+                <div class="form-inline py-4">
+                    <select id="monthsDropdown" class="custom-select">
+                        <option th:each="month, iter : ${months}" th:text="${month}" th:value="${month}" th:selected="${ iter.index == iter.size -1 }"></option>
+                    </select>
+                    <button id="show" class="btn btn-primary ml-3">表示</button>
+                    <button id="pdf" class="btn btn-primary ml-3">PDF</button>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        <table class="table table-sm">
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.month}">対象月</th>
+                                <td>2019年10月</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.belongsTo}">所属</th>
+                                <td>情報ﾈｯﾄﾜｰｸ総合研究所企画部人事</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.userCode}">氏名コード</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.userFullName}">氏名</th>
+                                <td>〇〇　〇〇</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-2">
+                        <table class="table table-sm">
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.submitter}">提出者</th>
+                                <td>〇〇〇〇</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.submittedAt}">提出日付</th>
+                                <td>2019.11.10</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.confirmedBy}">承認者</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.confirmedAt}">承認日付</th>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-3">
+                        <table class="table table-sm">
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.assistantCorrector}">補正者（人事担当）</th>
+                                <td>〇〇〇〇</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.correctedAt}">補正日付</th>
+                                <td>2019.11.20</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.generalCorrector}">補正者（総括担当）</th>
+                                <td>〇〇〇〇</td>
+                            </tr>
+                            <tr>
+                                <th class="table-primary" th:text="#{timesheets.single.confirmedAt}">承認日付</th>
+                                <td>2019.11.21</td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- table -->
+                    <div class="col-12 py-4">
+                        <table id="timesheetSingleTable" class="table table-bordered table-hover dataTable no-footer">
+                            <thead class="text-center">
+                                <tr>
+                                    <th rowspan="2">日付</th>
+                                    <th rowspan="2">詳細</th>
+                                    <th rowspan="2">勤務形態</th>
+                                    <th rowspan="2">休暇</th>
+                                    <th rowspan="2" width="10%">稼働状況確認画面コメント欄（発生時）</th>
+                                    <th colspan="2" class="table-primary" th:text="#{timesheets.single.timesheet}">勤務票</th>
+                                    <th colspan="4" class="table-success" th:text="#{timesheets.single.actualLog}">ログ実績</th>
+                                    <th colspan="2" class="table-warning" th:text="#{timesheets.single.lastDeviatedTime}">乖離時間（最終）</th>
+                                    <th colspan="2" th:text="#{timesheets.single.judgment}">
+                                        判定
+                                        <div class="form-inline justify-content-center">
+                                            <select class="custom-select custom-select-sm">
+                                                <option selected="selected">金</option>
+                                            </select>
+                                        </div>
+                                    </th>
+                                    <th colspan="4" th:text="#{timesheets.single.correctedTimesheetTime}">勤務票時間補正</th>
+                                    <th rowspan="2" width="10%">勤務票時間補正コメント<br>（判定が｢NG｣の場合、乖離理由や勤務時間補正理由等）</th>
+                                    <th colspan="3" th:text="#{timesheets.single.correctedType}">
+                                        補正種別
+                                        <div class="form-inline justify-content-center"><select
+                                                class="custom-select custom-select-sm">
+                                            <option selected="selected">金</option>
+                                        </select></div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="table-primary">始業前</th>
+                                    <th class="table-primary">終業後</th>
+                                    <th class="table-success">ログ種別</th>
+                                    <th class="table-success">始業時刻</th>
+                                    <th class="table-success">終業時刻</th>
+                                    <th class="table-success">接続時間</th>
+                                    <th class="table-warning">始業前</th>
+                                    <th class="table-warning">終業後</th>
+                                    <th>始業時刻</th>
+                                    <th>終業時刻</th>
+                                    <th>始業時刻</th>
+                                    <th>終業時刻</th>
+                                    <th>実労働時間</th>
+                                    <th>--時間</th>
+                                    <th width="3%">追納<br>返納</th>
+                                    <th width="3%">年休<br>返還</th>
+                                    <th width="3%">その<br>他</th>
+                                </tr>
+                            </thead>
+                            <tbody id="timesheetSingleTable-tBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <th:block layout:fragment="resources">
+        <script th:inline="javascript">
+            /*<![CDATA[*/
+                var months = /*[[${months}]]*/ [];
+            /*]]>*/
+        </script>
+
+        <script defer th:inline="javascript" type="module" th:src="@{/js/timesheet/single/index.js}"></script>
+    </th:block>
+</body>
+</html>
