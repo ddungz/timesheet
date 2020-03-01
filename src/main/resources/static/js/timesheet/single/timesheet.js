@@ -204,17 +204,6 @@ export default class TimesheetList {
         }
     }
 
-    _removeSessionInfo(event, componentName) {
-        console.log('_clearSessionInfo()');
-
-        const instance = event.data;
-        const storage = TSAPP.store.sessionStorage;
-
-        Object.keys(instance.data.sessionData).forEach(function(key) {
-            storage.removeItem(componentName + '.' + key);
-        });
-    }
-
     _setSessionInfo(event, componentName) {
         console.log('_setSessionInfo()');
 
@@ -223,6 +212,17 @@ export default class TimesheetList {
 
         Object.keys(instance.data.sessionData).forEach(function(key) {
             storage.setItem(componentName + '.' + key, instance.data.sessionData[key]);
+        });
+    }
+
+    _removeSessionInfo(event, componentName) {
+        console.log('_clearSessionInfo()');
+
+        const instance = event.data;
+        const storage = TSAPP.store.sessionStorage;
+
+        Object.keys(instance.data.sessionData).forEach(function(key) {
+            storage.removeItem(componentName + '.' + key);
         });
     }
 

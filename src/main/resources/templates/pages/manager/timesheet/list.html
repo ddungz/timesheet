@@ -24,14 +24,14 @@
 				<div class="tab-content">
 					<div id="book-list" class="tab-pane active">
 						<div class="form-inline py-4">
-							<select id="monthsDropdown" class="custom-select">
+							<select id="monthDropdown" class="custom-select">
 								<option th:each="month, iter : ${months}" th:text="${month}" th:value="${month}" th:selected="${ iter.index == iter.size -1 }"></option>
 							</select>
-							<select id="departmentsDropdown" class="custom-select ml-3">
+							<select id="departmentDropdown" class="custom-select ml-3">
 								<option selected="selected"></option>
 								<option th:each="department, iter : ${departments}" th:text="${department.name}" th:value="${department.code}"></option>
 							</select>
-							<select id="groupsDropdown" class="custom-select ml-3">
+							<select id="groupDropdown" class="custom-select ml-3">
 								<option selected="selected"></option>
 							</select>
 

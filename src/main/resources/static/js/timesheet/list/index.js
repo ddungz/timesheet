@@ -5,22 +5,21 @@ $(document).ready(function() {
 	// 初期化
 	const instance = new TimesheetList();
 	instance.data.months = months;
-	console.log('Departments', departments);
 	instance.data.departments = departments;
-	instance.init({data: instance});
-	
+	console.log('Departments', departments);
+
 	// 「対象月」変更イベント設定
-	$('#TimesheetList').on('change', '#monthsDropdown', instance, function(event) {
+	$('#TimesheetList').on('change', '#monthDropdown', instance, function(event) {
 		event.data.onMonthChange.apply(this, arguments);
 	});
 	
 	// 「組織」変更イベント設定
-	$('#TimesheetList').on('change', '#departmentsDropdown', instance, function(event) {
+	$('#TimesheetList').on('change', '#departmentDropdown', instance, function(event) {
 		event.data.onDepartmentChange.apply(this, arguments);
 	});
 	
 	// 「グループ」変更イベント設定
-	$('#TimesheetList').on('change', '#groupsDropdown', instance, function(event) {
+	$('#TimesheetList').on('change', '#groupDropdown', instance, function(event) {
 		event.data.onGroupChange.apply(this, arguments);
 	});
 	
@@ -43,4 +42,6 @@ $(document).ready(function() {
 	    event.data.onShowScheduleDetailsClick.apply(this, arguments);
 	});
 
+
+	instance.init({data: instance});
 });

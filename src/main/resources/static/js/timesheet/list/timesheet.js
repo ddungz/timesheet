@@ -180,15 +180,28 @@ export default class TimesheetList {
     	const instance = event.data;
     	instance.onMonthChange(event);
     	instance._initDataTable(event);
-    	instance._getSessionInfo(event);
+    	instance._getSessionData(event);
+    	instance._applySessionData(event);
+        instance._removeSessionInfo(event, 'timesheetList');
 
     	if(instance._shouldFireShowRequest(event)) {
     	    instance._show(event);
         }
     };
 
-    _getSessionInfo(event) {
-        console.log('_getSessionInfo()');
+    _setSessionInfo(event, componentName) {
+        console.log('_setSessionInfo()');
+
+        const instance = event.data;
+        const storage = TSAPP.store.sessionStorage;
+
+        Object.keys(instance.data.sessionData).forEach(function(key) {
+            storage.setItem(componentName + '.' + key, instance.data.sessionData[key]);
+        });
+    }
+
+    _getSessionData(event) {
+        console.log('_getSessionData()');
 
         const instance = event.data;
         const storage = TSAPP.store.sessionStorage;
@@ -206,8 +219,39 @@ export default class TimesheetList {
         }
     };
 
+    _applySessionData(event) {
+        const instance = event.data;
+
+        const dropdownList = {'month': 'month', 'department': 'departmentCode', 'group': 'groupCode'};
+        Object.keys(dropdownList).forEach(function(key) {
+            console.log('applying session data: '+key);
+            let valKey = dropdownList[key];
+            let $dropdown = $('#' + key + 'Dropdown');
+            let val = instance.data.sessionData[valKey];
+            instance._setDropdownValue($.extend(event, {target: $dropdown}), val);
+            $dropdown.trigger("change");
+        });
+    }
+
+    _removeSessionInfo(event, componentName) {
+        console.log('_clearSessionInfo()');
+
+        const instance = event.data;
+        const storage = TSAPP.store.sessionStorage;
+
+        Object.keys(instance.data.sessionData).forEach(function(key) {
+            storage.removeItem(componentName + '.' + key);
+        });
+    }
+
     _shouldFireShowRequest(event) {
-        return true;
+        const instance = event.data;
+
+        if(!!instance.data.sessionData.month) {
+            return true;
+        }
+
+        return false;
     }
 
     _initDataTable(event) {
@@ -223,7 +267,7 @@ export default class TimesheetList {
     	console.log('onMonthChange()');
 
     	const instance = event.data;
-    	var month = instance._getDropdownValueById('monthsDropdown');
+    	var month = instance._getDropdownValueById('monthDropdown');
     	instance.data.month = month;
     };
     
@@ -234,16 +278,16 @@ export default class TimesheetList {
     	console.log('onDepartmentChange()');
 
     	const instance = event.data;
-    	var departmentCode = instance._getDropdownValueById('departmentsDropdown');
+    	var departmentCode = instance._getDropdownValueById('departmentDropdown');
     	instance.data.departmentCode = departmentCode;
     	instance.data.groupCode = "";
     	
     	let department = instance.data.departments.find(item => item.code == departmentCode);
     	let groups = department && department.groups || {};
-    	instance._renderGroupsDropdown(event, groups);
+    	instance._renderGroupDropdown(event, groups);
     	console.log(instance.data);
     };
-    
+
     onGroupChange(event) {
     	/**
     	 * グループ変更処理
@@ -251,16 +295,16 @@ export default class TimesheetList {
     	console.log('onGroupChange()');
 
     	const instance = event.data;
-    	var groupCode = instance._getDropdownValueById('groupsDropdown');
+    	var groupCode = instance._getDropdownValueById('groupDropdown');
     	instance.data.groupCode = groupCode;
     	console.log(groupCode);
     };
-    
-    _renderGroupsDropdown(event, groups) {
+
+    _renderGroupDropdown(event, groups) {
     	/**
     	 * 組織によりグループ選択肢生成
     	 */
-    	console.log('_renderGroupsDropdown()');
+    	console.log('_renderGroupDropdown()');
 
     	var options = '<option value="" selected="selected"></option>';
     	if(groups && groups.length > 0) {
@@ -268,9 +312,9 @@ export default class TimesheetList {
     			options += '<option value="' + item.code + '">' + item.name + '</option>';
     		});
     	}
-    	$('#groupsDropdown').empty().append($(options));
+    	$('#groupDropdown').empty().append($(options));
     }
-    
+
     onShowClick(event) {
     	/**
     	 * グループ変更処理
@@ -339,9 +383,9 @@ export default class TimesheetList {
         console.log('_resetDepartmentAndGroup()');
 
         const instance = event.data;
-        $('#departmentsDropdown').prop('selectedIndex', 0);
-        instance.onDepartmentChange($.extend(true, event, {target: $('#departmentsDropdown')}));
-        instance.onGroupChange($.extend(true, event, {target: $('#groupsDropdown')}));
+        $('#departmentDropdown').prop('selectedIndex', 0);
+        instance.onDepartmentChange($.extend(true, event, {target: $('#departmentDropdown')}));
+        instance.onGroupChange($.extend(true, event, {target: $('#groupDropdown')}));
     }
     
     _show(event) {
@@ -740,5 +784,15 @@ export default class TimesheetList {
     _getDropdownValueById(id) {
     	var el = document.getElementById(id);
     	return el.options[el.selectedIndex].value;
+    }
+
+    _setDropdownValue(event, value) {
+        const instance = event.data;
+        const util = TSAPP.util;
+
+        var $dropdown = $(event.target);
+        if( !util.isUndefined(value) ) {
+            $dropdown.val(value);
+        }
     }
 }
